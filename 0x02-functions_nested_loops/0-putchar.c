@@ -2,10 +2,10 @@
 
 /**
  * main - function that prints _putchar
- * Return: Always 0
+ * Return: returns 0;
  */
 
-int min(void)
+int main(void)
 {
 	_putchar('_');
 	_putchar('p');
