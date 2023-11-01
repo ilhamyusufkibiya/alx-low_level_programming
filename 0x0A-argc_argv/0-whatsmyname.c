@@ -1,9 +1,9 @@
 #include <stdio.h>
 /**
- * main - A program that prints the file name
+ * main - A function that prints the program name
  * @argc: Argument count
  * @argv: Argument vector
- * Return: o
+ * Return: 0
  */
 int main(int argc, char *argv[])
 {
