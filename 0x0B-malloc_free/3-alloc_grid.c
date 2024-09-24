@@ -1,38 +1,45 @@
+#include <stdlib.h>
 #include "main.h"
+
 /**
- * alloc_grid - function of pointer to a 2 dimensional array of integers.
- * @width: number of columns
- * @height: number of rows
- * Return: pointer to array
+ * **alloc_grid - creates a two dimensional array of ints
+ * @width: width of the matrix
+ * @height: height of the matrix
+ *
+ * Return: pointer to the created matrix (Success)
+ * or NULL (Error)
  */
 int **alloc_grid(int width, int height)
 {
-	int **output;
-	int i;
-	int j;
+	int **arr;
+	int i, j;
 
-	if (width <= 0 || height <= 0)
+	if (height <= 0 || width <= 0)
 		return (NULL);
-	output = malloc(sizeof(int *) * height);
 
-	if (output == NULL)
+	arr = (int **) malloc(sizeof(int *) * height);
+
+	if (arr == NULL)
 		return (NULL);
 
 	for (i = 0; i < height; i++)
-
 	{
-		output[i] = malloc(sizeof(int) *  width);
-
-		if (output[i] == NULL)
+		arr[i] = (int *) malloc(sizeof(int) * width);
+		if (arr[i] == NULL)
 		{
-			free(output);
-			for (j = 0; j <= height; j++)
-				free(output[j]);
+			free(arr);
+			for (j = 0; j <= i; j++)
+				free(arr[j]);
 			return (NULL);
 		}
-
-		for (j = 0; j < width; j++)
-			output[i][j] = 0;
 	}
-	return (output);
+
+	for (i = 0; i < height; i++)
+	{
+		for (j = 0; j < width; j++)
+		{
+			arr[i][j] = 0;
+		}
+	}
+	return (arr);
 }

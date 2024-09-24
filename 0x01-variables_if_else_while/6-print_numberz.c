@@ -1,19 +1,18 @@
 #include <stdio.h>
 
 /**
- * main - print a number from 0 to 9.
- *
- * Return: Always 0
+ * main - prints all single digit numbers of base 10 starting from 0,
+ * followed by a new line, using putchar
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int i;
+	int n;
 
-	for (i = 0; i < 10; i++)
+	for (n = 48; n < 58; n++)
 	{
-		putchar(i + '0');
+		putchar(n);
 	}
 	putchar('\n');
 	return (0);
 }
-

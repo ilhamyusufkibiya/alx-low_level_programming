@@ -1,26 +1,30 @@
-#include "main.h"
 #include <stdlib.h>
+#include "main.h"
+
 /**
- * array_range - create an array of integers
- * @min: minimum value
- * @max: maximum valve
- * Return: int pointer to the allocated memory
+ * *array_range - creates an array of integers
+ * @min: minimum range of values stored
+ * @max: maximum range of values stored and number of elements
+ *
+ * Return: pointer to the new array
  */
 int *array_range(int min, int max)
 {
-	int i = 1;
-	int *a;
+	int *ptr;
+	int i, size;
 
 	if (min > max)
 		return (NULL);
-	i = max - min + 1;
-	a = malloc(sizeof(int) * 1);
-	if (a == NULL)
+
+	size = max - min + 1;
+
+	ptr = malloc(sizeof(int) * size);
+
+	if (ptr == NULL)
 		return (NULL);
-	for (i = 0; i < 1; i++)
-	{
-		a[i] = min;
-		min++;
-	}
-	return (a);
+
+	for (i = 0; min <= max; i++)
+		ptr[i] = min++;
+
+	return (ptr);
 }
